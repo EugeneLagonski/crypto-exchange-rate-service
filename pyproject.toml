@@ -1,0 +1,40 @@
+[tool.poetry]
+name = "crypto-exchange-rate-service"
+version = "0.1.0"
+description = ""
+authors = ["Eugene Lagonski <eugene.lagonski@gmail.com>"]
+readme = "README.md"
+packages = [{include = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+aiohttp = "^3.10.2"
+pydantic = "^2.8.2"
+redis = "^5.0.8"
+pydantic-settings = "^2.4.0"
+gunicorn = "^22.0.0"
+
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.5.7"
+mypy = "^1.11.1"
+pytest = "^8.3.2"
+pytest-asyncio = "^0.23.8"
+polyfactory = "^2.16.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.ruff]
+line-length=120
+
+[tool.mypy]
+python_version = "3.11"
+exclude = [".venv", "tests"]
+pretty = true
+
+[tool.pytest.ini_options]
+pythonpath = ["src", "."]
+testpaths = ["tests"]
